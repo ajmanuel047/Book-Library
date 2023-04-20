@@ -7,13 +7,15 @@ const display = document.querySelector(".display");
 const booktitle = document.querySelector("#book-title");
 const submit = document.querySelector("#submit");
 const addBook = document.querySelector(".addbook");
+const addBookContainer = document.querySelector("#addBookContainer");
+const text = document.querySelector("#text");
 // eslint-disable-next-line no-unused-vars
 
-
-addBook.addEventListener('click', function(){
-  form.style.visibility = "visible"
-  addBook.style.visibility = "hidden"
-})
+addBook.addEventListener("click", function () {
+  form.style.visibility = "visible";
+  addBook.style.visibility = "hidden";
+  addBookContainer.style.display = "none";
+});
 submit.addEventListener("click", function (e) {
   let library = [];
   function Book(title, author, pages, read) {
@@ -48,6 +50,20 @@ submit.addEventListener("click", function (e) {
   let deleteButton;
   let status;
   let div;
+
+  let words = [
+    "Awesome",
+    "Sweetness",
+    "You Rock",
+    "Lets Do This",
+    "Nice",
+    "Well Done",
+    "You Are Great",
+    "You Got This",
+  ];
+
+  let randomNumber = Math.floor(Math.random() * words.length);
+
   function displayBook() {
     for (let i = 0; i < library.length; i++) {
       // eslint-disable-next-line linebreak-style
@@ -89,12 +105,30 @@ submit.addEventListener("click", function (e) {
         status.style.height = "32px";
         status.style.fontSize = "1rem";
         div.appendChild(status);
+
+        const textPara = document.createElement("h2");
+        console.log(words[randomNumber]);
+        textPara.textContent = words[randomNumber];
+        text.appendChild(textPara);
+        form.style.visibility = "hidden";
+
+        setTimeout(function testing() {
+          textPara.remove();
+          form.style.visibility = "visible";
+        }, 2000);
       }
     }
   }
 
+
+
+    
+  
+  
+
   console.log(library);
   displayBook();
+
   deleteButton.addEventListener("click", function () {
     cards.removeChild(div);
   });
@@ -120,6 +154,7 @@ submit.addEventListener("click", function (e) {
 });
 
 /*
+just delete the content below textPara
 every book read
 every book unread
 when marked read remove from read and place in unread
