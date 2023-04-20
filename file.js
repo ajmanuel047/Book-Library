@@ -40,8 +40,9 @@ submit.addEventListener("click", function (e) {
     "Read"
   );
   library.push(Ajiri);
-let button;
-let div;
+  let deleteButton;
+  let status;
+  let div;
   function displayBook() {
     for (let i = 0; i < library.length; i++) {
       // eslint-disable-next-line linebreak-style
@@ -54,7 +55,7 @@ let div;
         console.log(i);
         library.splice(i, 1);
       } else {
-         div = document.createElement("div");
+        div = document.createElement("div");
         cards.appendChild(div);
         div.classList.add("card");
         div.classList.add(`card${i + 1}`);
@@ -74,20 +75,32 @@ let div;
         const thirdParagraph = document.createElement("p");
         div.appendChild(thirdParagraph);
         thirdParagraph.textContent = `Read : ${readStatus}`;
-        button = document.createElement("button");
-        button.textContent = "Remove";
-        button.style.fontSize = "1rem";
-        div.appendChild(button);
+        deleteButton = document.createElement("button");
+        deleteButton.textContent = "Remove";
+        deleteButton.style.fontSize = "1rem";
+        div.appendChild(deleteButton);
+        status = document.createElement("button")
+        status.textContent = 'Read'
+        status.style.height = "32px"
+        status.style.fontSize = '1rem'
+        div.appendChild(status)
       }
     }
   }
 
   console.log(library);
   displayBook();
-  button.addEventListener("click", function () {
-   
-    cards.removeChild(div)
+  deleteButton.addEventListener("click", function () {
+    cards.removeChild(div);
   });
+
+  status.addEventListener('click', function(){
+    if(status.textContent == "Read"){
+      status.textContent = "UnRead"
+    }else {
+      status.textContent = "Read"
+    }
+  })
 
   // console.log(library[0].title)
   //  else {
