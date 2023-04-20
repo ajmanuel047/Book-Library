@@ -16,6 +16,7 @@ addBook.addEventListener("click", function () {
   addBook.style.visibility = "hidden";
   addBookContainer.style.display = "none";
 });
+
 submit.addEventListener("click", function (e) {
   let library = [];
   function Book(title, author, pages, read) {
@@ -36,7 +37,6 @@ submit.addEventListener("click", function (e) {
   );
 
   let bookName = result["book-title"];
-
   let authorName = result["author"];
   let pagesCount = result["pages"];
   let readCount = result["read"];
@@ -63,7 +63,9 @@ submit.addEventListener("click", function (e) {
   ];
 
   let randomNumber = Math.floor(Math.random() * words.length);
-
+  let firstParagraph;
+  let secondParagraph;
+  let thirdParagraph;
   function displayBook() {
     for (let i = 0; i < library.length; i++) {
       // eslint-disable-next-line linebreak-style
@@ -84,18 +86,18 @@ submit.addEventListener("click", function (e) {
         const { author } = library[i];
         const { pages } = library[i];
         const readStatus = library[i].read;
-        const firstParagraph = document.createElement("p");
+        firstParagraph = document.createElement("p");
         div.appendChild(firstParagraph);
         firstParagraph.textContent = `Book Title : ${bookTitle}`;
         const authorParagraph = document.createElement("p");
         div.appendChild(authorParagraph);
         authorParagraph.textContent = `Author : ${author}`;
-        const secondParagraph = document.createElement("p");
+        secondParagraph = document.createElement("p");
         div.appendChild(secondParagraph);
         secondParagraph.textContent = `Pages : ${pages}`;
-        const thirdParagraph = document.createElement("p");
+        thirdParagraph = document.createElement("p");
         div.appendChild(thirdParagraph);
-        thirdParagraph.textContent = `Read : ${readStatus}`;
+        thirdParagraph.textContent = `Read : `;
         deleteButton = document.createElement("button");
         deleteButton.textContent = "Remove";
         deleteButton.style.fontSize = "1rem";
@@ -136,8 +138,10 @@ submit.addEventListener("click", function (e) {
   status.addEventListener("click", function () {
     if (status.textContent == "Read") {
       status.textContent = "UnRead";
+      thirdParagraph.textContent = `Read : Yes`;
     } else {
       status.textContent = "Read";
+      thirdParagraph.textContent = `Read : No`;
     }
   });
 
