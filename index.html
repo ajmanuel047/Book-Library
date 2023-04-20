@@ -11,7 +11,25 @@
   <body>
     <h1>My Book Library</h1>
     <div class="cards"></div>
-
+    <button class="btn">Fill this</button>
+    <h1 class="display"></h1>
+    <form id="forms">
+      <fieldset>
+        <label for="book-title"
+          >Book Title:
+          <input id="book-title" type="text" name="book-title" required
+        /></label>
+        <label for="author"
+          >Author: <input id="author" type="text" name="author" required
+        /></label>
+        <label for="pages"
+          >Pages: <input id="pages" type="number" name="pages" required
+        /></label>
+        <label for="submit"
+          ><input id="submit" type="reset" value="Submit"
+        /></label>
+      </fieldset>
+    </form>
     <script src="file.js"></script>
   </body>
 </html>

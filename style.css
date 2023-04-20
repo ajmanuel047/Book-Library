@@ -4,21 +4,63 @@
   background-color: #ff0022;
   margin: auto;
   display: flex;
-  
 }
 
 .card {
   width: 31%;
-  height: 160px;
+
   background-color: #ffa500;
   font-size: 1.5rem;
   margin-right: 10px;
 }
 
 .card1 {
-background-color: green;
+  background-color: green;
 }
 
 .card2 {
-background-color: pink;
+  background-color: pink;
+}
+
+button {
+  width: 100px;
+  padding: 5px;
+}
+
+.btn {
+  margin-top: 100px;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 300px;
+  min-width: 300px;
+  width: 60vw;
+  background-color: orange;
+  /* visibility: hidden; */
+}
+
+
+fieldset {
+  border: none;
+  padding: 2rem 0;
+  /* background-color: pink; */
+}
+
+label {
+  display: block;
+  background-color: green;
+  margin: 0;
+  width: 100%;
+}
+
+
+input {
+ width: 100%;
+
+}
+
+input[type="submit"] {
+  background-color: pink;
+  width: 100%;
 }
