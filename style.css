@@ -4,6 +4,7 @@
   background-color: #ff0022;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -33,10 +34,11 @@ button {
 
 form {
   margin: 0 auto;
-  max-width: 300px;
+  /* max-width: 300px; */
   min-width: 300px;
-  width: 60vw;
+  width: 90vw;
   background-color: orange;
+
   /* visibility: hidden; */
 }
 
@@ -45,18 +47,21 @@ fieldset {
   border: none;
   padding: 2rem 0;
   /* background-color: pink; */
+  display: flex;
 }
 
 label {
-  display: block;
-  background-color: green;
+
+  flex-direction: row;
+  /* background-color: green; */
   margin: 0;
   width: 100%;
+  margin-right: 15px;
 }
 
 
 input {
- width: 100%;
+ width:100%;
 
 }
 
