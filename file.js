@@ -40,7 +40,8 @@ submit.addEventListener("click", function (e) {
     "Read"
   );
   library.push(Ajiri);
-
+let button;
+let div;
   function displayBook() {
     for (let i = 0; i < library.length; i++) {
       // eslint-disable-next-line linebreak-style
@@ -53,7 +54,7 @@ submit.addEventListener("click", function (e) {
         console.log(i);
         library.splice(i, 1);
       } else {
-        const div = document.createElement("div");
+         div = document.createElement("div");
         cards.appendChild(div);
         div.classList.add("card");
         div.classList.add(`card${i + 1}`);
@@ -73,7 +74,7 @@ submit.addEventListener("click", function (e) {
         const thirdParagraph = document.createElement("p");
         div.appendChild(thirdParagraph);
         thirdParagraph.textContent = `Read : ${readStatus}`;
-        const button = document.createElement("button");
+        button = document.createElement("button");
         button.textContent = "Remove";
         button.style.fontSize = "1rem";
         div.appendChild(button);
@@ -83,6 +84,10 @@ submit.addEventListener("click", function (e) {
 
   console.log(library);
   displayBook();
+  button.addEventListener("click", function () {
+   
+    cards.removeChild(div)
+  });
 
   // console.log(library[0].title)
   //  else {
