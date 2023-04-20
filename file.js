@@ -6,9 +6,14 @@ const form = document.querySelector("#forms");
 const display = document.querySelector(".display");
 const booktitle = document.querySelector("#book-title");
 const submit = document.querySelector("#submit");
-
+const addBook = document.querySelector(".addbook");
 // eslint-disable-next-line no-unused-vars
 
+
+addBook.addEventListener('click', function(){
+  form.style.visibility = "visible"
+  addBook.style.visibility = "hidden"
+})
 submit.addEventListener("click", function (e) {
   let library = [];
   function Book(title, author, pages, read) {
@@ -79,11 +84,11 @@ submit.addEventListener("click", function (e) {
         deleteButton.textContent = "Remove";
         deleteButton.style.fontSize = "1rem";
         div.appendChild(deleteButton);
-        status = document.createElement("button")
-        status.textContent = 'Read'
-        status.style.height = "32px"
-        status.style.fontSize = '1rem'
-        div.appendChild(status)
+        status = document.createElement("button");
+        status.textContent = "Read";
+        status.style.height = "32px";
+        status.style.fontSize = "1rem";
+        div.appendChild(status);
       }
     }
   }
@@ -94,13 +99,13 @@ submit.addEventListener("click", function (e) {
     cards.removeChild(div);
   });
 
-  status.addEventListener('click', function(){
-    if(status.textContent == "Read"){
-      status.textContent = "UnRead"
-    }else {
-      status.textContent = "Read"
+  status.addEventListener("click", function () {
+    if (status.textContent == "Read") {
+      status.textContent = "UnRead";
+    } else {
+      status.textContent = "Read";
     }
-  })
+  });
 
   // console.log(library[0].title)
   //  else {

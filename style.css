@@ -39,7 +39,7 @@ form {
   width: 90vw;
   background-color: orange;
 
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 
@@ -68,4 +68,12 @@ input {
 input[type="submit"] {
   background-color: pink;
   width: 100%;
+}
+
+.addbook {
+  background-color: green;
+  width: 70px;
+  height: 20px;
+  cursor: pointer;
+
 }
