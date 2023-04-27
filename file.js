@@ -9,6 +9,7 @@ const submit = document.querySelector("#submit");
 const addBook = document.querySelector(".addbook");
 const addBookContainer = document.querySelector("#addBookContainer");
 const text = document.querySelector("#text");
+const bodyContent = document.querySelector("#body_content");
 // eslint-disable-next-line no-unused-vars
 
 addBook.addEventListener("click", function () {
@@ -97,23 +98,27 @@ submit.addEventListener("click", function (e) {
         secondParagraph.textContent = `Pages : ${pages}`;
         thirdParagraph = document.createElement("p");
         div.appendChild(thirdParagraph);
-        thirdParagraph.textContent = `Read : `;
+        thirdParagraph.textContent = `Completed : `;
         deleteButton = document.createElement("button");
         deleteButton.textContent = "Remove";
         deleteButton.style.fontSize = "1rem";
         div.appendChild(deleteButton);
         status = document.createElement("button");
         status.textContent = "Read";
-        status.style.height = "32px";
+        status.style.height = "32.5px";
         status.style.fontSize = "1rem";
         div.appendChild(status);
-
+        bodyContent.style.display = "none";
         const textPara = document.createElement("h2");
         console.log(words[randomNumber]);
         textPara.textContent = words[randomNumber];
         text.appendChild(textPara);
         form.style.visibility = "hidden";
+        cards.style.border = "1px solid orange";
+        //  if(display.textContent !== ''){
+        display.textContent = "";
 
+        //  }
         setTimeout(function testing() {
           textPara.remove();
           form.style.visibility = "visible";
@@ -122,26 +127,34 @@ submit.addEventListener("click", function (e) {
     }
   }
 
-
-
-    
-  
-  
-
   console.log(library);
   displayBook();
 
   deleteButton.addEventListener("click", function () {
     cards.removeChild(div);
+    if (cards.textContent == "") {
+      cards.style.removeProperty("border");
+      //  cards.style.border = "2px dotted orange"
+      //  cards.style.height = "67vh"
+      //  cards.style.width = "97%"
+
+      const para = document.createElement("p");
+      para.textContent = "Your Books Show Here";
+      display.appendChild(para);
+      display.style.backgroundColor = "orange";
+      display.style.width = "80%";
+      display.style.margin = "auto";
+      display.style.backgroundColor = "#F7F6EB";
+    }
   });
 
   status.addEventListener("click", function () {
     if (status.textContent == "Read") {
       status.textContent = "UnRead";
-      thirdParagraph.textContent = `Read : Yes`;
+      thirdParagraph.textContent = `Completed : Yes`;
     } else {
       status.textContent = "Read";
-      thirdParagraph.textContent = `Read : No`;
+      thirdParagraph.textContent = `Completed : No`;
     }
   });
 

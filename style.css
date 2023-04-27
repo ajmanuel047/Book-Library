@@ -7,33 +7,107 @@ h1,
 h2 {
   text-align: center;
 }
+header {
+  display: flex;
+  background-color: #00c9a9;
+  height: 69px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
 
 h2 {
   font-size: 3rem;
   margin-top: 13px;
 }
 
-.cards {
-  width: 80%;
-  height: 260px;
-  background-color: #ff0022;
-  margin: auto;
+#body_content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  height: 67vh;
+  margin-top: -50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 2px dotted orange;
+  width: 92%;
+  margin: auto;
+  /* border-bottom: 1px solid orange; */
 }
 
-.card {
+#body_content p:nth-child(2) {
+  margin-top: -30px;
+}
+
+@media only screen and (max-width: 557px) {
+  #body_content {
+    font-size: 1.9rem;
+  }
+}
+.cards {
+  width: 92%;
+
+  background-color: #f7f6eb;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  row-gap: 1px;
+  column-gap: 1px;
+}
+
+/* display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+width: 100%;
+/* background-color: tomato; */
+/* height: auto; */
+/* margin-top: 15px; */
+
+/* .card {
   width: 32.66%;
-  height: 260px;
+  height: 263px;
   background-color: #ffa500;
   font-size: 1.5rem;
-}
+} */
 
 .card1 {
-  background-color: green;
-  min-width: 300px;
+  background-color: #d1d0ca;
+  /* min-width: 19%; */
+  height: 186px;
+  font-size: 1rem;
+  padding-left: 10px;
 }
+
+
+@media only screen and (max-width: 1124px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 843px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 557px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+/* @media only screen and (max-width: 1348px){
+  .card1  {
+    width: 294.8px;
+  }
+}
+@media only screen and (max-width: 1366px){
+  .card1  {
+    width: 298px;
+  }
+} */
 
 button {
   width: 100px;
@@ -50,10 +124,12 @@ form {
   /* max-width: 300px; */
   min-width: 300px;
   width: 90vw;
-  background-color: orange;
+  /* background-color: orange; */
   height: 60px;
   visibility: hidden;
   margin-bottom: 30px;
+  margin-top: 10px;
+  /* margin-top: -22px; */
 }
 
 fieldset {
@@ -73,6 +149,7 @@ label {
 
 input {
   width: 100%;
+  min-width: 70px;
 }
 
 input[type="submit"] {
@@ -89,7 +166,8 @@ input[type="submit"] {
 }
 
 .addbook {
-  background-color: green;
+  background-color: #5e5950;
+  color: white;
   width: 100px;
   height: 60px;
   cursor: pointer;
@@ -100,6 +178,9 @@ input[type="submit"] {
   border-radius: 50px;
 }
 
+.addbook:hover {
+  background-color: #8a857c;
+}
 #text {
   height: 0;
 }
@@ -113,4 +194,13 @@ h2 {
   100% {
     transform: scale(1);
   }
+}
+
+.display {
+  /* opacity: 0; */
+  /* position: relative;
+  top: -260px;
+  right: 190px */
+  position: relative;
+  top: 100px;
 }
