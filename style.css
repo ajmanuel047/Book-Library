@@ -41,9 +41,37 @@ h2 {
 
 @media only screen and (max-width: 557px) {
   #body_content {
-    font-size: 1.9rem;
+    font-size: 1.2rem;
+    line-height: 40px;
   }
 }
+
+@media only screen and (max-width: 472px) {
+
+ fieldset {
+  margin-top: -10px;
+  font-size: 0.8rem;
+ }
+
+  label[for = "submit"] {
+    width: 100px;
+    position: absolute;
+    top: 109px;
+    right: 165px;
+    text-align: center;  
+  } 
+}
+@media only screen and (max-width: 370px) {
+
+  label[for = "submit"] {
+  
+   
+    right: 157px;
+    width: 50px;
+  } 
+}
+
+
 .cards {
   width: 92%;
 
@@ -113,10 +141,12 @@ button {
   width: 100px;
   padding: 5px;
   margin-bottom: 50px;
+  
 }
 
 .btn {
   margin-top: 100px;
+  
 }
 
 form {
@@ -129,6 +159,7 @@ form {
   visibility: hidden;
   margin-bottom: 30px;
   margin-top: 10px;
+
   /* margin-top: -22px; */
 }
 
@@ -136,7 +167,11 @@ fieldset {
   border: none;
   padding: 2rem 0;
   /* background-color: pink; */
+
   display: flex;
+ 
+ 
+ 
 }
 
 label {
@@ -150,12 +185,13 @@ label {
 input {
   width: 100%;
   min-width: 70px;
+ 
 }
 
-input[type="submit"] {
+/* input[type="submit"] {
   background-color: pink;
   width: 100%;
-}
+} */
 
 #addBookContainer {
   width: 100%;
