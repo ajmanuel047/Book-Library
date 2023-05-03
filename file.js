@@ -1,10 +1,8 @@
 /* eslint-disable no-plusplus */
 // eslint-disable-next-line no-unused-vars
 const cards = document.querySelector(".cards");
-const btn = document.querySelector(".btn");
 const form = document.querySelector("#forms");
 const display = document.querySelector(".display");
-const booktitle = document.querySelector("#book-title");
 const submit = document.querySelector("#submit");
 const addBook = document.querySelector(".addbook");
 const addBookContainer = document.querySelector("#addBookContainer");
@@ -12,14 +10,14 @@ const text = document.querySelector("#text");
 const bodyContent = document.querySelector("#body_content");
 // eslint-disable-next-line no-unused-vars
 
-addBook.addEventListener("click", function () {
+addBook.addEventListener("click", () => {
   form.style.visibility = "visible";
   addBook.style.visibility = "hidden";
   addBookContainer.style.display = "none";
 });
 
-submit.addEventListener("click", function (e) {
-  let library = [];
+submit.addEventListener("click", () => {
+  const library = [];
   function Book(title, author, pages, read) {
     // eslint-disable-next-line no-unused-expressions, no-sequences
     (this.author = author),
@@ -32,15 +30,14 @@ submit.addEventListener("click", function (e) {
       });
   }
 
-  let result = Array.from(document.querySelectorAll("#forms input")).reduce(
+  const result = Array.from(document.querySelectorAll("#forms input")).reduce(
     (acc, input) => ({ ...acc, [input.id]: input.value }),
     {}
   );
 
-  let bookName = result["book-title"];
-  let authorName = result["author"];
-  let pagesCount = result["pages"];
-  let readCount = result["read"];
+  const bookName = result["book-title"];
+  const authorName = result.author;
+  const pagesCount = result.pages;
   const Ajiri = new Book(
     `${bookName}`,
     `${authorName}`,
@@ -52,7 +49,7 @@ submit.addEventListener("click", function (e) {
   let status;
   let div;
 
-  let words = [
+  const words = [
     "Awesome",
     "Sweetness",
     "You Rock",
@@ -63,7 +60,7 @@ submit.addEventListener("click", function (e) {
     "You Got This",
   ];
 
-  let randomNumber = Math.floor(Math.random() * words.length);
+  const randomNumber = Math.floor(Math.random() * words.length);
   let firstParagraph;
   let secondParagraph;
   let thirdParagraph;
@@ -71,12 +68,11 @@ submit.addEventListener("click", function (e) {
     for (let i = 0; i < library.length; i++) {
       // eslint-disable-next-line linebreak-style
       if (
-        library[i].title == "" ||
-        library[i].author == "" ||
-        library[i].pages == "" ||
-        library[i].read == ""
+        library[i].title === "" ||
+        library[i].author === "" ||
+        library[i].pages === "" ||
+        library[i].read === ""
       ) {
-        console.log(i);
         library.splice(i, 1);
       } else {
         div = document.createElement("div");
@@ -86,7 +82,6 @@ submit.addEventListener("click", function (e) {
         const bookTitle = library[i].title;
         const { author } = library[i];
         const { pages } = library[i];
-        const readStatus = library[i].read;
         firstParagraph = document.createElement("p");
         div.appendChild(firstParagraph);
         firstParagraph.textContent = `Book Title : ${bookTitle}`;
@@ -110,34 +105,24 @@ submit.addEventListener("click", function (e) {
         div.appendChild(status);
         bodyContent.style.display = "none";
         const textPara = document.createElement("h2");
-        console.log(words[randomNumber]);
         textPara.textContent = words[randomNumber];
         text.appendChild(textPara);
         form.style.visibility = "hidden";
         cards.style.border = "1px solid orange";
-        //  if(display.textContent !== ''){
         display.textContent = "";
-
-        //  }
-        setTimeout(function testing() {
+        setTimeout(() => {
           textPara.remove();
           form.style.visibility = "visible";
         }, 2000);
       }
     }
   }
-
-  console.log(library);
   displayBook();
 
-  deleteButton.addEventListener("click", function () {
+  deleteButton.addEventListener("click", () => {
     cards.removeChild(div);
-    if (cards.textContent == "") {
+    if (cards.textContent === "") {
       cards.style.removeProperty("border");
-      //  cards.style.border = "2px dotted orange"
-      //  cards.style.height = "67vh"
-      //  cards.style.width = "97%"
-
       const para = document.createElement("p");
       para.textContent = "Your Books Show Here";
       display.appendChild(para);
@@ -148,8 +133,8 @@ submit.addEventListener("click", function (e) {
     }
   });
 
-  status.addEventListener("click", function () {
-    if (status.textContent == "Read") {
+  status.addEventListener("click", () => {
+    if (status.textContent === "Read") {
       status.textContent = "UnRead";
       thirdParagraph.textContent = `Completed : Yes`;
     } else {
@@ -157,25 +142,4 @@ submit.addEventListener("click", function (e) {
       thirdParagraph.textContent = `Completed : No`;
     }
   });
-
-  // console.log(library[0].title)
-  //  else {
-  //   for(let i = 1; i < library.length; i++){
-  //     if(library[i].library[i].title == ''){
-
-  //         library.splice(i, 1)
-  //         console.log(library[0].title)
-  //     }
-  //     }
-  // }
 });
-
-/*
-just delete the content below textPara
-every book read
-every book unread
-when marked read remove from read and place in unread
-when submit is clicked create an array of random excited 
-words that would be displayed like "awesome", "sweetness" 
-etc
-*/
