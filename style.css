@@ -35,6 +35,18 @@ h2 {
   /* border-bottom: 1px solid orange; */
 }
 
+button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
 #body_content p:nth-child(2) {
   margin-top: -30px;
 }
